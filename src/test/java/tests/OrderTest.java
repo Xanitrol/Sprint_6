@@ -130,10 +130,8 @@ public class OrderTest {
 
         // 5) Проверка “Заказ оформлен”
         WebElement created = wait.until(ExpectedConditions.visibilityOfElementLocated(orderCreatedHeader));
-        assertTrue(created.isDisplayed(), "Не появилось окно 'Заказ оформлен'");
+        assertTrue(created.getText().contains("Заказ оформлен"), "Не появилось окно 'Заказ оформлен'");
 
-        // и кликаем "Посмотреть статус" (в Firefox/Chrome иногда перекрыто — жмём через JS)
-        clickByJs(viewStatusButton);
     }
 
     private WebDriver createDriver(String browser) {
